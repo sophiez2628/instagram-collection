@@ -14,8 +14,8 @@ var Photos = React.createClass({
   render: function() {
     if (this.state.photos.length > 0) {
       return (
-        <div>
-          <ul>
+        <div className="photos">
+          <ul className="group">
             {
               this.state.photos.map(function(photo, index) {
                 return (
