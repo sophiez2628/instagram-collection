@@ -1,9 +1,9 @@
-var Photo = React.createClass({
+var Photos = React.createClass({
   render: function() {
     return (
       <div>
         <ul>
-          
+
         </ul>
       </div>
     );

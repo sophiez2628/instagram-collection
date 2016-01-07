@@ -3,7 +3,7 @@ var FrontPage = React.createClass({
     return (
       <div>
         <SearchBar />
-        <Photo />
+        <Photos />
       </div>
     );
   }
