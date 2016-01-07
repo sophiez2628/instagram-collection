@@ -6,7 +6,6 @@
   var filter = function(photos) {
     var filteredPhotos = [];
     for(var i = 0; i < photos.photos.data.length; i++) {
-      debugger;
       var aPhoto = photos.photos.data[i];
       var time = parseInt(aPhoto.created_time);
       if (time >= photos.start && time <= photos.end) {
@@ -17,7 +16,6 @@
   }
   var resetPhotos = function(photos){
     _photos = filter(photos);
-    debugger;
     PhotosStore.onChange();
   };
 

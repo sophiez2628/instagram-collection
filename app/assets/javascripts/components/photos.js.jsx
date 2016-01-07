@@ -12,18 +12,26 @@ var Photos = React.createClass({
   },
 
   render: function() {
-    return (
-      <div>
-        <ul>
-          {
-            for(var i = 0; i < this.state.photos.length; i++) {
-              <li>
-                <img src={this.state.photos[i].images.standard_resolution}></img>
-              </li>
-            };
-          }
-        </ul>
-      </div>
-    );
+    if (this.state.photos.length > 0) {
+      return (
+        <div>
+          <ul>
+            {
+              this.state.photos.map(function(photo, index) {
+                return (
+                  <li>
+                    <img key={index} src={photo.images.standard_resolution.url}></img>
+                  </li>
+                )
+              })
+            }
+          </ul>
+        </div>
+      );
+    } else {
+      return (
+        <div>Loading...</div>
+      );
+    }
   }
 });
