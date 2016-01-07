@@ -2,9 +2,8 @@ var SearchBar = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
     var tag = e.currentTarget.tag.value;
-    var start = Date.parse(e.currentTarget.start.value)/1000;
-    var end = Date.parse(e.currentTarget.end.value)/1000;
-    var query = {tag: tag, start: start, end: end };
+    var start = Date.parse(e.currentTarget.start.value)/1000 - 86400;
+    var end = Date.parse(e.currentTarget.end.value)/1000 + 86400;
 
     //make API call to Instagram
     ApiUtil.fetchPhotos(tag, start, end);
