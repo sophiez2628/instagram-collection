@@ -15,7 +15,7 @@ var Collections = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
     var name = e.currentTarget.name.value;
-    ApiUtil.createCollection(name);
+    ApiUtil.createCollection({name: name});
   },
 
   render: function() {

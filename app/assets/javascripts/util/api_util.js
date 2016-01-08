@@ -21,5 +21,16 @@ ApiUtil = {
         ApiActions.receiveCollections(response);
       }
     })
+  },
+
+  createCollection: function(params) {
+    $.ajax({
+      type: "POST",
+      data: params,
+      url: "/api/collections",
+      success: function(response) {
+        ApiUtil.fetchCollections();
+      }
+    })
   }
 }
