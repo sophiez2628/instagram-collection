@@ -18,6 +18,12 @@ var Collections = React.createClass({
     ApiUtil.createCollection({name: name});
   },
 
+  handleClick: function(e) {
+    e.preventDefault();
+    var collectionId = e.currentTarget.dataset.id;
+    ApiUtil.showPhotos({collectionId: collectionId});
+  },
+
   render: function() {
     return (
       <div>
@@ -30,11 +36,11 @@ var Collections = React.createClass({
           {
             this.state.collections.map(function(collection, index) {
               return (
-                <div className="collection" data-id={collection.id}>
+                <div className="collection" data-id={collection.id} onClick={this.handleClick}>
                   {collection.name}
                 </div>
               )
-            })
+            }.bind(this))
           }
         </ul>
       </div>

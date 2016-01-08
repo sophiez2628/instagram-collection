@@ -1,4 +1,5 @@
 var Photos = React.createClass({
+
   getInitialState: function() {
     return { photos: [], collections: [] };
   },
@@ -87,9 +88,15 @@ var Photos = React.createClass({
         </div>
       );
     } else {
-      return (
-        <div>Loading...</div>
-      );
+      if (this.props.route.name) {
+        return (
+          <div>Choose a Collection to View its Photos!</div>
+        );
+      } else {
+        return (
+          <div>Loading...</div>
+        );
+      }
     }
   }
 });

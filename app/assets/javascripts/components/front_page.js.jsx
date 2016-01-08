@@ -1,4 +1,5 @@
 var FrontPage = React.createClass({
+
   handleClick: function(e) {
     e.preventDefault();
     this.props.history.pushState(null, "collections");
@@ -14,7 +15,7 @@ var FrontPage = React.createClass({
         </input>
 
         <SearchBar />
-        <Photos />
+        <Photos route={this.props.route} />
       </div>
     );
   }
