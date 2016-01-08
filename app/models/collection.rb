@@ -9,4 +9,8 @@
 #
 
 class Collection < ActiveRecord::Base
+  has_many :photos,
+    primary_key: :id,
+    foreign_key: :collection_id,
+    class_name: "Photo"
 end

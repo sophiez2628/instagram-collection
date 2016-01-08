@@ -21,3 +21,10 @@ favorite_singers = Collection.create({
 cute_dresses = Collection.create({
   name: "Cute Dresses"
   })
+
+emmastone = Photo.create({
+  url: "https://scontent.cdninstagram.com/hphotos-xpt1/t51.2885-15/s640x640/sh0.08/e35/12383589_905187976216208_1588505485_n.jpg",
+  link: "https://www.instagram.com/p/BASdEzas5JZ/",
+  tag_time: 1452278198,
+  collection_id: favorite_actresses.id 
+  })
