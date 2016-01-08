@@ -58,7 +58,7 @@ var Photos = React.createClass({
                   );
                 }
                 if (this.props.route.name) {
-                  return media;
+                  return <li>{media}</li>;
                 } else {
                   return (
                     <li>

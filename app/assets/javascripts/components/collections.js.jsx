@@ -32,7 +32,7 @@ var Collections = React.createClass({
           <input type="submit" value="create collection" className="submit-button"></input>
         </form>
 
-        <ul className="group">
+        <ul className="group collections">
           {
             this.state.collections.map(function(collection, index) {
               return (

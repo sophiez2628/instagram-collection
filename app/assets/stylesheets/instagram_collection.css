@@ -83,6 +83,10 @@ li {
   cursor: pointer;
 }
 
+.collections {
+  margin: 20px auto;
+}
+
 .collection:hover {
   background-color: #b3d8ff;
 }
