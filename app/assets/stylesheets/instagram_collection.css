@@ -1,4 +1,4 @@
-html, body, img, h1, ul, li, p {
+html, body, img, h1, ul, li, p, a, span {
   margin: 0;
   padding: 0;
   border: 0;
@@ -35,6 +35,11 @@ form {
   width: 50%;
 }
 
+.username {
+  font-size: 18px;
+  font-weight: 100;
+}
+
 input {
   margin: 0;
   padding: 0;
@@ -67,7 +72,8 @@ ul {
 li {
   float: left;
   width: 33.333333%;
-  height: 33.333333%;
+  height: 341px;
+  position: relative;
 }
 
 .collection {
@@ -90,4 +96,39 @@ img {
   content: "";
   display: block;
   clear: both;
+}
+
+.photo-details {
+  margin: 0px;
+  width: 100%;
+  background-color:  #bfbfbf;
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+}
+
+.photo-details span {
+  display: block;
+  margin: auto;
+}
+
+.photo-details form {
+  width: 100%;
+  margin: 0;
+  border: 0px;
+}
+
+.photo-details form select {
+  float: left;
+  margin-top: 8px;
+}
+
+.photo-details form input {
+  float: right;
+}
+
+a {
+  display: block;
+  height: 100%;
+  width: 100%;
 }

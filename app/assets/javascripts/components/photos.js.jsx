@@ -1,10 +1,16 @@
 var Photos = React.createClass({
   getInitialState: function() {
-    return { photos: [] };
+    return { photos: [], collections: [] };
   },
 
   componentDidMount: function() {
     PhotosStore.addChangeListener(this.onPhotosChange);
+    CollectionsStore.addChangeListener(this.onCollectionsChange);
+    ApiUtil.fetchCollections();
+  },
+
+  onCollectionsChange: function() {
+    this.setState({ collections: CollectionsStore.all() });
   },
 
   onPhotosChange: function() {
@@ -21,9 +27,27 @@ var Photos = React.createClass({
                 return (
                   <li>
                     <img key={index} src={photo.images.standard_resolution.url}></img>
+
+
+
+                    <div className="photo-details">
+                      <span className="username">{photo.user.username}</span>
+                      <form className="group">
+                        <select>
+                          {
+                            this.state.collections.map(function(collection, idx) {
+                              return <option>{collection.name}</option>
+                            })
+                          }
+                        </select>
+
+                        <input type="submit"></input>
+                      </form>
+                    </div>
+
                   </li>
                 )
-              })
+              }.bind(this))
             }
           </ul>
         </div>
