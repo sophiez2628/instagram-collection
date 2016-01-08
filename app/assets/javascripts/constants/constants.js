@@ -6,3 +6,7 @@ Instagram = {
 PhotosConstants = {
   PHOTOS_RECEIVED: "PHOTOS_RECEIVED"
 }
+
+CollectionsConstants = {
+  COLLECTIONS_RECEIVED: "COLLECTIONS_RECEIVED"
+}

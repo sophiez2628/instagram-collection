@@ -20,7 +20,7 @@ var SearchBar = React.createClass({
           <input type="text" placeholder="#hashtag" name="tag"></input>
           <input type="date" placeholder="start date" name="start"></input>
           <input type="date" placeholder="end date" name="end"></input>
-          <input type="submit" value="submit"></input>
+          <input className="submit-button" type="submit" value="submit"></input>
         </form>
       </div>
     );

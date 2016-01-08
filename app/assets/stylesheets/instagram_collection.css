@@ -37,6 +37,18 @@ input {
   width: 25%;
 }
 
+.submit-button {
+  cursor: pointer;
+}
+
+.view-collections {
+  display: block;
+  float: none;
+  margin: auto;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
 ul {
   list-style: none;
   width: 80%;
@@ -48,6 +60,16 @@ li {
   float: left;
   width: 33.333333%;
   height: 33.333333%;
+}
+
+.collection {
+  font-size: 30px;
+  background-color: aliceblue;
+  cursor: pointer;
+}
+
+.collection:hover {
+  background-color: #b3d8ff;
 }
 
 img {

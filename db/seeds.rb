@@ -5,3 +5,19 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+favorite_actresses = Collection.create({
+  name: "Favorite Actresses"
+  })
+
+favorite_actors = Collection.create({
+  name: "Favorite Actors"
+  })
+
+favorite_singers = Collection.create({
+  name: "Favorite Singers"
+  })
+
+cute_dresses = Collection.create({
+  name: "Cute Dresses"
+  })

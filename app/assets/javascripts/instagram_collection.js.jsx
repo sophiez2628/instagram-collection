@@ -18,6 +18,7 @@ var startApp = function() {
     var routes = (
       <Route path="/" component={App}>
         <IndexRoute component={FrontPage} />
+        <Route path="/collections" component={Collections} />
       </Route>
     );
 
