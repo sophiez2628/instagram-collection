@@ -105,6 +105,11 @@ img {
   position: absolute;
   z-index: 1;
   bottom: 0px;
+  opacity: 0;
+}
+
+.photo-details:hover {
+  opacity: 1;
 }
 
 .photo-details span {
