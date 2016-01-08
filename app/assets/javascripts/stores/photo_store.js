@@ -15,7 +15,13 @@
     return filteredPhotos;
   }
   var resetPhotos = function(photos){
-    _photos = filter(photos);
+    if (photos.start) {
+      //instagram api objects
+      _photos = filter(photos);
+    } else {
+      //json format
+      _photos = photos.photos;
+    }
     PhotosStore.onChange();
   };
 

@@ -11,8 +11,19 @@ class Api::PhotosController < ApplicationController
     end
   end
 
+  def index
+    photos = Collection.find(Integer(collection_id[:collectionId])).photos
+    if photos
+      render json: photos
+    end 
+  end
+
   private
   def photo_params
     params.permit(:url, :link, :tagTime, :collectionId)
+  end
+
+  def collection_id
+    params.permit(:collectionId)
   end
 end

@@ -41,7 +41,7 @@ var Photos = React.createClass({
                 var media = [];
                 var url = "";
                 if (photo.videos) {
-                  url = photo.videos.standard_resolution.url;
+                  url = photo.url || photo.videos.standard_resolution.url;
                   media.push(
                     <a href={photo.link}>
                       <video controls>
@@ -50,38 +50,40 @@ var Photos = React.createClass({
                     </a>
                   );
                 } else {
-                  url = photo.images.standard_resolution.url;
+                  url = photo.url || photo.images.standard_resolution.url;
                   media.push(
                     <a href={photo.link}>
                       <img key={index} src={url}></img>
                     </a>
                   );
                 }
-                return (
-                  <li>
-                    {media}
+                if (this.props.route.name) {
+                  return media;
+                } else {
+                  return (
+                    <li>
+                      {media}
+                      <div className="photo-details">
+                        <span className="username">{photo.user.username}</span>
+                        <form className="group"
+                          onSubmit={this.handleSubmit}
+                          data-url={url}
+                          data-link={photo.link}
+                          data-tag-time={photo.created_time}>
+                          <select name="selections">
+                            {
+                              this.state.collections.map(function(collection, idx) {
+                                return <option>{collection.name}</option>
+                              })
+                            }
+                          </select>
 
-                    <div className="photo-details">
-                      <span className="username">{photo.user.username}</span>
-                      <form className="group"
-                            onSubmit={this.handleSubmit}
-                            data-url={url}
-                            data-link={photo.link}
-                            data-tag-time={photo.created_time}>
-                        <select name="selections">
-                          {
-                            this.state.collections.map(function(collection, idx) {
-                              return <option>{collection.name}</option>
-                            })
-                          }
-                        </select>
-
-                        <input type="submit"></input>
-                      </form>
-                    </div>
-
-                  </li>
-                )
+                          <input type="submit"></input>
+                        </form>
+                      </div>
+                    </li>
+                  )
+                }
               }.bind(this))
             }
           </ul>

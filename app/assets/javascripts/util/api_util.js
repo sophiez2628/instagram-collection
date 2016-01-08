@@ -43,5 +43,16 @@ ApiUtil = {
         alert("Saved to Collection Successfully!");
       }
     })
+  },
+
+  showPhotos: function(params) {
+    $.ajax({
+      type: "GET",
+      data: params,
+      url: "/api/photos",
+      success: function(response) {
+        ApiActions.receivePhotos(response);
+      }
+    })
   }
 }
