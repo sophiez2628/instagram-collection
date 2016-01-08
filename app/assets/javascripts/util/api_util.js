@@ -32,5 +32,12 @@ ApiUtil = {
         ApiUtil.fetchCollections();
       }
     })
+  },
+
+  savePhoto: function(params) {
+    $.ajax({
+      type: "POST",
+      data: params,
+    })
   }
 }
