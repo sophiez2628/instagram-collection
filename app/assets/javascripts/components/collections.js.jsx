@@ -12,29 +12,32 @@ var Collections = React.createClass({
     this.setState({ collections: CollectionsStore.all() });
   },
 
+  handleSubmit: function(e) {
+    e.preventDefault();
+    var name = e.currentTarget.name.value;
+    ApiUtil.createCollection(name);
+  },
+
   render: function() {
-    if (this.state.collections.length > 0) {
-      return (
-        <div>
-          <ul className="group">
-            {
-              this.state.collections.map(function(collection, index) {
-                return (
-                  <div className="collection" data-id={collection.id}>
-                    {collection.name}
-                  </div>
-                )
-              })
-            }
-          </ul>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          No Collections Yet!
-        </div>
-      )
-    }
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit} className="group create-collection">
+          <input type="text" name="name" placeholder="name"></input>
+          <input type="submit" value="create collection" className="submit-button"></input>
+        </form>
+
+        <ul className="group">
+          {
+            this.state.collections.map(function(collection, index) {
+              return (
+                <div className="collection" data-id={collection.id}>
+                  {collection.name}
+                </div>
+              )
+            })
+          }
+        </ul>
+      </div>
+    );
   }
 });
