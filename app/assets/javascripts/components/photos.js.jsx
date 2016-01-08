@@ -24,11 +24,25 @@ var Photos = React.createClass({
           <ul className="group">
             {
               this.state.photos.map(function(photo, index) {
+                var media = [];
+                if (photo.videos) {
+                  media.push(
+                    <a href={photo.link}>
+                      <video controls>
+                        <source key={index} src={photo.videos.standard_resolution.url}></source>
+                      </video>
+                    </a>
+                  );
+                } else {
+                  media.push(
+                    <a href={photo.link}>
+                      <img key={index} src={photo.images.standard_resolution.url}></img>
+                    </a>
+                  );
+                }
                 return (
                   <li>
-                    <img key={index} src={photo.images.standard_resolution.url}></img>
-
-
+                    {media}
 
                     <div className="photo-details">
                       <span className="username">{photo.user.username}</span>
