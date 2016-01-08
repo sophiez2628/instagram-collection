@@ -38,6 +38,10 @@ ApiUtil = {
     $.ajax({
       type: "POST",
       data: params,
+      url: "/api/photos",
+      success: function(response) {
+        alert("Saved to Collection Successfully!");
+      }
     })
   }
 }
