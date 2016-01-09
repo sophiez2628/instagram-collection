@@ -45,6 +45,14 @@ var Photos = React.createClass({
   },
 
   render: function() {
+    var loadMoreButton;
+    if (this.props.route.name === undefined) {
+      loadMoreButton = [<input type="submit"
+             value="Load More!"
+             className="load-more-button"
+             onClick={this.loadMorePhotos}></input>]
+    }
+
     if (this.state.photos.length > 0) {
       return (
         <div className="photos">
@@ -101,10 +109,7 @@ var Photos = React.createClass({
             }
           </ul>
 
-          <input type="submit"
-                 value="Load More!"
-                 className="load-more-button"
-                 onClick={this.loadMorePhotos}></input>
+          {loadMoreButton}
         </div>
       );
     } else {
