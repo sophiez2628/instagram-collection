@@ -1,37 +1,47 @@
 (function(root){
 
   var CHANGE_EVENT = "change";
+  var UPDATE_EVENT = "update";
   var _photos = [];
+  var _nextUrl = "";
+  var _start;
+  var _end;
 
-  var filter = function(photos) {
-    var filteredPhotos = [];
-    for(var i = 0; i < photos.photos.data.length; i++) {
-      var aPhoto = photos.photos.data[i];
-      var time = parseInt(aPhoto.created_time);
-      if (time >= photos.start && time <= photos.end) {
-        filteredPhotos.push(aPhoto);
-      }
-    }
-    return filteredPhotos;
-  }
   var resetPhotos = function(photos){
-    if (photos.start) {
-      //instagram api objects
-      _photos = filter(photos);
+    _photos = photos.photos;
+    _nextUrl = photos.nextUrl;
+    _start = photos.start;
+    _end = photos.end;
+    if (photos.update) {
+      PhotosStore.onUpdateChange();
     } else {
-      //json format
-      _photos = photos.photos;
+      PhotosStore.onChange();
     }
-    PhotosStore.onChange();
   };
 
   root.PhotosStore = $.extend({}, EventEmitter.prototype, {
     all: function(){
-      return _photos.slice(0);
+      return _photos.slice(0, 20);
+    },
+
+    nextUrl: function() {
+      return _nextUrl;
+    },
+
+    start: function() {
+      return _start;
+    },
+
+    end: function() {
+      return _end;
     },
 
     addChangeListener: function(callback){
       this.on(CHANGE_EVENT, callback);
+    },
+
+    addUpdateListener: function(callback) {
+      this.on(UPDATE_EVENT, callback);
     },
 
     removeChangeListener: function(callback){
@@ -40,6 +50,10 @@
 
     onChange: function() {
       this.emit(CHANGE_EVENT);
+    },
+
+    onUpdateChange: function() {
+      this.emit(UPDATE_EVENT);
     },
 
     dispatcherID: AppDispatcher.register(function(action){

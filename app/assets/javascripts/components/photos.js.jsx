@@ -1,11 +1,12 @@
 var Photos = React.createClass({
 
   getInitialState: function() {
-    return { photos: [], collections: [] };
+    return { photos: [], collections: [], nextUrl: "", start: 0, end: 0 };
   },
 
   componentDidMount: function() {
     PhotosStore.addChangeListener(this.onPhotosChange);
+    PhotosStore.addUpdateListener(this.onUpdateChange);
     CollectionsStore.addChangeListener(this.onCollectionsChange);
     ApiUtil.fetchCollections();
   },
@@ -15,7 +16,19 @@ var Photos = React.createClass({
   },
 
   onPhotosChange: function() {
-    this.setState({ photos: PhotosStore.all() });
+    this.setState({ photos: PhotosStore.all(),
+                    nextUrl: PhotosStore.nextUrl(),
+                    start: PhotosStore.start(),
+                    end: PhotosStore.end()
+                  });
+  },
+
+  onUpdateChange: function() {
+    this.setState({ photos: this.state.photos.concat(PhotosStore.all()), nextUrl: PhotosStore.nextUrl() });
+  },
+
+  loadMorePhotos: function() {
+    ApiUtil.fetchPhotos(undefined, this.state.start, this.state.end, this.state.nextUrl, true);
   },
 
   handleSubmit: function(e) {
@@ -88,7 +101,10 @@ var Photos = React.createClass({
             }
           </ul>
 
-          <input type="submit" value="Load More!" className="load-more-button"></input>
+          <input type="submit"
+                 value="Load More!"
+                 className="load-more-button"
+                 onClick={this.loadMorePhotos}></input>
         </div>
       );
     } else {

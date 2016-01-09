@@ -1,6 +1,6 @@
 var SearchBar = React.createClass({
   componentDidMount: function() {
-    ApiUtil.fetchPhotos("dalmatian", Date.now()/1000 - 86400, Date.now());
+    ApiUtil.fetchPhotos("dalmatian", Date.now()/1000 - 86400, Date.now()/1000);
   },
 
   handleSubmit: function(e) {

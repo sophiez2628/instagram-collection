@@ -1,8 +1,8 @@
 ApiActions = {
-  receivePhotos: function(photos, start, end) {
+  receivePhotos: function(photos, start, end, nextUrl, update) {
     AppDispatcher.dispatch({
       actionType: PhotosConstants.PHOTOS_RECEIVED,
-      photos: {photos: photos, start: start, end: end}
+      photos: {photos: photos, start: start, end: end, nextUrl: nextUrl, update: update}
     })
   },
 
