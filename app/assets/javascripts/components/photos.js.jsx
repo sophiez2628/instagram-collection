@@ -84,7 +84,7 @@ var Photos = React.createClass({
                   return <li key={photo.id}>{media}</li>;
                 } else {
                   return (
-                    <li>
+                    <li key={photo.id}>
                       {media}
                       <div className="photo-details">
                         <span className="username">{photo.user.username}</span>
