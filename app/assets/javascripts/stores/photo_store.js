@@ -21,6 +21,7 @@
 
   root.PhotosStore = $.extend({}, EventEmitter.prototype, {
     all: function(){
+      console.log(_photos.length);
       return _photos.slice(0, 20);
     },
 

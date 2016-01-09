@@ -9,7 +9,6 @@ ApiUtil = {
       for(var i = 0; i < photos.data.length; i++) {
         var aPhoto = photos.data[i];
         var time = parseInt(aPhoto.created_time);
-        console.log(time);
         if (time >= start && time <= end) {
           filteredPhotos.push(aPhoto);
         }
