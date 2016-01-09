@@ -1,28 +1,26 @@
 == README
+Instagram Collection is built using Ruby on Rails 4 and React.js.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I implemented the following features:
 
-Things you may want to cover:
+* Landing page automatically searches for #dalmatian.
+  I added this feature because it helps the user quickly see what the app can do.
 
-* Ruby version
+* I implemented a Rails JSON API in order to retrieve a collection's photos.
 
-* System dependencies
+* The front-end of the app is built with the flux pattern in mind. The flux pattern describes
+  a unidirectional data flow that involves three major parts: the dispatcher, the stores,
+  and the views. By following this design pattern, it is easier to maintain and debug
+  the app.
 
-* Configuration
+* User can type in a hash tag and choose start and end dates. App returns search results.
 
-* Database creation
+* Other core features of the user interface include saving a photo to a collection (by mousing
+  over the top portion of the photo), viewing Instagram username of a photo (also by
+  mousing over the top portion of the photo), navigating to the native Instagram link 
+  (by clicking the photo), loading more photos (by clicking the load more button at the
+  bottom of the page), and creating a new collection (by navigating to the view collection page
+  and typing in the name of the new collection). These core features of the user interface
+  are intuitive for the user.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* If user does not provide an end date, the current Date is used.

@@ -66,7 +66,7 @@ var Photos = React.createClass({
                   media.push(
                     <a href={photo.link}>
                       <video controls>
-                        <source key={index} src={url}></source>
+                        <source src={url}></source>
                       </video>
                     </a>
                   );
@@ -74,12 +74,12 @@ var Photos = React.createClass({
                   url = photo.url || photo.images.standard_resolution.url;
                   media.push(
                     <a href={photo.link}>
-                      <img key={index} src={url}></img>
+                      <img src={url}></img>
                     </a>
                   );
                 }
                 if (this.props.route.name) {
-                  return <li>{media}</li>;
+                  return <li key={photo.id}>{media}</li>;
                 } else {
                   return (
                     <li>
