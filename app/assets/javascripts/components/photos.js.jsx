@@ -87,6 +87,8 @@ var Photos = React.createClass({
               }.bind(this))
             }
           </ul>
+
+          <input type="submit" value="Load More!" className="load-more-button"></input>
         </div>
       );
     } else {

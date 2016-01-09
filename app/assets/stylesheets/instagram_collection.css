@@ -66,14 +66,20 @@ ul {
   list-style: none;
   width: 80%;
   margin: auto;
-  border: 10px solid gray;
+  border: 10px solid black;
 }
 
 li {
+  width: 25%;
   float: left;
-  width: 33.333333%;
-  height: 341px;
+  height: 250px;
   position: relative;
+  padding-bottom: 10px;
+  background-color: black;
+}
+
+li:nth-last-child(-n + 4) {
+  padding: 0px;
 }
 
 .collection {
@@ -119,7 +125,7 @@ video {
 }
 
 .photo-details:hover {
-  opacity: 1;
+  opacity: .8;
 }
 
 .photo-details span {
@@ -146,4 +152,14 @@ a {
   display: block;
   height: 100%;
   width: 100%;
+}
+
+.load-more-button {
+  display: block;
+  margin: 20px auto 150px auto;
+  float: none;
+}
+
+.load-more-button:hover {
+  cursor: pointer;
 }
