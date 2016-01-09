@@ -32,16 +32,6 @@ ApiUtil = {
     })
   },
 
-  // fetchPhotosFromNextUrl: function(url) {
-  //   $.ajax({
-  //     type: "GET",
-  //     url: url,
-  //     dataType: "jsonp",
-  //     success: function(response) {
-  //       ApiActions.receivePhotos(response)
-  //     }
-  //   })
-  // },
 
   fetchCollections: function() {
     $.ajax({

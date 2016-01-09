@@ -37,12 +37,12 @@ var Photos = React.createClass({
     var selectedCollectionId = this.state.collections[selectedIdx].id;
     //add image/video to the chosen collection
     //url for video or photo?
-    debugger;
     ApiUtil.savePhoto({
       url: e.currentTarget.dataset.url,
       link: e.currentTarget.dataset.link,
       tagTime: e.currentTarget.dataset.tagTime,
-      collectionId: selectedCollectionId
+      collectionId: selectedCollectionId,
+      videos: e.currentTarget.dataset.videos
     });
   },
 
@@ -92,7 +92,8 @@ var Photos = React.createClass({
                           onSubmit={this.handleSubmit}
                           data-url={url}
                           data-link={photo.link}
-                          data-tag-time={photo.created_time}>
+                          data-tag-time={photo.created_time}
+                          data-videos={photo.videos}>
                           <select name="selections">
                             {
                               this.state.collections.map(function(collection, idx) {
