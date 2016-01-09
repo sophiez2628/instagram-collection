@@ -17,10 +17,13 @@ I implemented the following features:
 
 * Other core features of the user interface include saving a photo to a collection (by mousing
   over the top portion of the photo), viewing Instagram username of a photo (also by
-  mousing over the top portion of the photo), navigating to the native Instagram link 
+  mousing over the top portion of the photo), navigating to the native Instagram link
   (by clicking the photo), loading more photos (by clicking the load more button at the
   bottom of the page), and creating a new collection (by navigating to the view collection page
   and typing in the name of the new collection). These core features of the user interface
   are intuitive for the user.
 
 * If user does not provide an end date, the current Date is used.
+
+The next most important feature to improve is to minimize the amount of API hits even more, so
+that users do not experience a major disruption while using the app.
