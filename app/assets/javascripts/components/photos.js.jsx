@@ -36,6 +36,8 @@ var Photos = React.createClass({
     var selectedIdx = e.currentTarget.selections.options.selectedIndex;
     var selectedCollectionId = this.state.collections[selectedIdx].id;
     //add image/video to the chosen collection
+    //url for video or photo?
+    debugger;
     ApiUtil.savePhoto({
       url: e.currentTarget.dataset.url,
       link: e.currentTarget.dataset.link,

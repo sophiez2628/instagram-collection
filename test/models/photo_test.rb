@@ -9,6 +9,7 @@
 #  collection_id :integer          not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  videos        :boolean
 #
 
 require 'test_helper'
