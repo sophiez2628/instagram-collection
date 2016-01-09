@@ -7,7 +7,7 @@ var SearchBar = React.createClass({
     e.preventDefault();
     var tag = e.currentTarget.tag.value;
     var start = Date.parse(e.currentTarget.start.value)/1000 - 86400;
-    var end = Date.parse(e.currentTarget.end.value)/1000 + 86400;
+    var end = Date.parse(e.currentTarget.end.value)/1000 + 86400 || Date.now()/1000;
 
     //make API call to Instagram
     ApiUtil.fetchPhotos(tag, start, end);
