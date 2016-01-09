@@ -1,5 +1,6 @@
 == README
 Instagram Collection is built using Ruby on Rails 4 and React.js.
+You can visit at http://sophiesinstagramcollection.herokuapp.com.
 
 I implemented the following features:
 
@@ -9,7 +10,7 @@ I implemented the following features:
 * I implemented a Rails JSON API in order to retrieve a collection's photos.
 
 * The front-end of the app is built with the flux pattern in mind. The flux pattern describes
-  a unidirectional data flow that involves three major parts: the dispatcher, the stores,
+  an unidirectional data flow that involves three major parts: the dispatcher, the stores,
   and the views. By following this design pattern, it is easier to maintain and debug
   the app.
 
