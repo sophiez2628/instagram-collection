@@ -2,6 +2,9 @@
 Instagram Collection is built using Ruby on Rails 4 and React.js.
 You can visit at http://sophiesinstagramcollection.herokuapp.com.
 
+To run the app on localhost:3000, you can download the zip file and run the
+following commands: bundle install, rake db:reset, and rails s.
+
 I implemented the following features:
 
 * Landing page automatically searches for #dalmatian.
